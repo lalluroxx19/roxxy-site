@@ -9,7 +9,8 @@ const products = [
   {id:"head",name:"Headphone Stand",category:"Gaming",price:349,desc:"Give your gaming headset a proper home.",symbol:"🎧",glow:"#3b2d52",code:"RX-GM01"},
   {id:"controller",name:"Controller Display Stand",category:"Gaming",price:249,desc:"A desk display stand for your controller.",symbol:"🎮",glow:"#24423f",code:"RX-GM02"},
   {id:"planter",name:"Geometric Mini Planter",category:"Accessories",price:199,desc:"A modern little planter for your space.",symbol:"🪴",glow:"#4a3c2c",code:"RX-A02"},
-  {id:"plate",name:"Custom Name Plate",category:"Gifts",price:249,desc:"A personalised desk or room name plate.",symbol:"✦",glow:"#4b3c22",code:"RX-G02"}
+ {id:"plate",name:"Custom Name Plate",category:"Gifts",price:249,desc:"A personalised desk or room name plate.",symbol:"✦",glow:"#4b3c22",code:"RX-G02"},
+{id:"spider01",name:"ROXXY Spider Emblem",category:"Accessories",price:149,desc:"White 3D printed spider emblem.",symbol:"🕷️",glow:"#3b2452",code:"RX-A03"}
 ];
 let cart = JSON.parse(localStorage.getItem("roxxyCart") || "[]");
 const grid = document.getElementById("productGrid");
