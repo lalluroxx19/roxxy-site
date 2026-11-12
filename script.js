@@ -2,7 +2,7 @@
 const WHATSAPP_NUMBER = "919398882855";
 const products = {
   spider01: { id:"spider01", name:"ROXXY Spider Emblem", price:49, code:"RX-A03" },
-  oni01: { id:"oni01", name:"ROXXY Oni Face Mask", price:600, code:"RX-M01" }
+  oni01: { id:"oni01", name:"ROXXY Oni Face Mask", price:599, code:"RX-M01" }
 };
 const money = amount => "₹" + Number(amount).toLocaleString("en-IN");
 const cartDrawer=document.getElementById("cartDrawer"), overlay=document.getElementById("overlay"), cartItems=document.getElementById("cartItems");
