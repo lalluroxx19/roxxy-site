@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="ROXXY 3D PRINTS — custom 3D printed cars, gaming accessories, gifts and more.">
+  <title>ROXXY 3D PRINTS | Your Ideas. Printed in 3D.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">CUSTOM 3D PRINTS · MADE TO ORDER · INDIA-WIDE ENQUIRIES</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="ROXXY 3D PRINTS home">
+      <span class="brand-mark">R<span>✦</span></span>
+      <span class="brand-name">ROXXY <b>3D PRINTS</b></span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#shop">Shop</a><a href="#custom">Custom Prints</a><a href="#about">About</a>
+    </nav>
+    <button class="cart-trigger" id="openCart" aria-label="Open shopping cart">
+      <span>Cart</span><span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> NEXT-GEN CUSTOM PRINTING</div>
+        <h1>YOUR IDEAS.<br><span>PRINTED IN 3D.</span></h1>
+        <p>From miniature machines to gaming desk upgrades — bring your ideas to life with custom 3D printing by ROXXY.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#shop">EXPLORE PRODUCTS <span>↗</span></a>
+          <a class="btn btn-ghost" href="#custom">REQUEST A CUSTOM PRINT</a>
+        </div>
+        <div class="hero-meta"><span>PRECISION PRINTING</span><i></i><span>MADE TO ORDER</span><i></i><span>PERSONAL TOUCH</span></div>
+      </div>
+      <div class="hero-art" aria-label="Abstract 3D printed model illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="cube"><div class="cube-face front">R</div><div class="cube-face side"></div><div class="cube-face top"></div></div>
+        <div class="art-tag tag-top">ROXXY / LAB_01</div>
+        <div class="art-tag tag-bottom">DESIGNED TO BE DIFFERENT</div>
+      </div>
+    </section>
+
+    <section class="ticker"><div>3D PRINTING <b>✦</b> MINIATURES <b>✦</b> CUSTOM PARTS <b>✦</b> GAMING GEAR <b>✦</b> PERSONALIZED GIFTS <b>✦</b> 3D PRINTING <b>✦</b></div></section>
+
+    <section class="section" id="shop">
+      <div class="section-heading">
+        <div><div class="eyebrow">THE ROXXY COLLECTION</div><h2>FIND YOUR <span>NEXT THING.</span></h2></div>
+        <p>Small-batch creations. Big personality.<br>Choose a product and add it to your cart.</p>
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter active" data-filter="All">All products</button>
+        <button class="filter" data-filter="Miniatures">Miniatures</button>
+        <button class="filter" data-filter="Gaming">Gaming</button>
+        <button class="filter" data-filter="Accessories">Accessories</button>
+        <button class="filter" data-filter="Gifts">Gifts</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="small-note">Product images are illustrative placeholders. Final colour, size and finish are confirmed before printing.</p>
+    </section>
+
+    <section class="custom-section" id="custom">
+      <div class="custom-visual">
+        <div class="wireframe"></div><div class="custom-stamp">CUSTOM<br><b>BUILD</b></div>
+        <div class="custom-code">IDEA_IN<br>PRINT_OUT</div>
+      </div>
+      <div class="custom-copy">
+        <div class="eyebrow">HAVE AN IDEA?</div>
+        <h2>MAKE IT<br><span>REAL.</span></h2>
+        <p>Have an STL file, a reference photo, or a product idea? Tell us what you need. We'll review the details and share a quote before printing.</p>
+        <form id="customForm" class="custom-form">
+          <label>Your name<input name="name" required placeholder="Name"></label>
+          <label>What do you want printed?<input name="idea" required placeholder="e.g. custom keychain, replacement part"></label>
+          <label>Approximate size / notes<textarea name="notes" rows="3" placeholder="Dimensions, colour, quantity or reference link"></textarea></label>
+          <button class="btn btn-primary" type="submit">SEND CUSTOM REQUEST <span>↗</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="how section" id="about">
+      <div class="eyebrow">SIMPLE. CLEAR. CUSTOM.</div><h2>HOW IT <span>WORKS.</span></h2>
+      <div class="steps">
+        <article><b>01</b><h3>CHOOSE</h3><p>Pick a product or send us your own idea.</p></article>
+        <article><b>02</b><h3>CONFIRM</h3><p>We confirm the design, material, price and timeline.</p></article>
+        <article><b>03</b><h3>PRINT</h3><p>Your item is printed and quality-checked.</p></article>
+        <article><b>04</b><h3>DELIVER</h3><p>Arrange pickup or delivery after order confirmation.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#"><span class="brand-mark">R<span>✦</span></span><span class="brand-name">ROXXY <b>3D PRINTS</b></span></a>
+    <p>YOUR IDEAS. PRINTED IN 3D.</p>
+    <div class="footer-links"><a href="#shop">Shop</a><a href="#custom">Custom orders</a><a href="#" id="footerWhatsApp">WhatsApp</a></div>
+    <small>© <span id="year"></span> ROXXY 3D PRINTS. All rights reserved.</small>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head"><div><div class="eyebrow">YOUR SELECTION</div><h2>YOUR CART</h2></div><button class="close-cart" id="closeCart" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"><p class="empty-cart">Your cart is empty. Find something you like.</p></div>
+    <div class="drawer-bottom"><div class="subtotal"><span>Estimated subtotal</span><b id="cartTotal">₹0</b></div><p>Shipping, customisation and final price are confirmed on WhatsApp.</p><button class="btn btn-primary checkout-btn" id="checkout">CHECKOUT ON WHATSAPP ↗</button></div>
+  </aside>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
