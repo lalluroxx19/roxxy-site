@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090b12">
-  <meta name="description" content="ROXXY 3D PRINTS — ROXXY Spider Emblem, 3D printed for ₹49.">
-  <title>ROXXY 3D PRINTS | Spider Emblem</title>
+  <meta name="description" content="ROXXY 3D PRINTS — shop the Spider Emblem and Oni Face Mask.">
+  <title>ROXXY 3D PRINTS | 3D Printed Products</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,110 +13,43 @@
 </head>
 <body>
   <div class="announcement">ROXXY ORIGINAL · 3D PRINTED · MADE TO ORDER</div>
-
   <header class="site-header">
-    <a class="brand" href="#" aria-label="ROXXY 3D PRINTS home">
-      <span class="brand-mark">R<span>✦</span></span>
-      <span class="brand-name">ROXXY <b>3D PRINTS</b></span>
-    </a>
-    <nav class="desktop-nav">
-      <a href="#product">Product</a>
-      <a href="#details">Details</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="cart-trigger" id="openCart" type="button">
-      <span>Cart</span><span class="cart-count" id="cartCount">0</span>
-    </button>
+    <a class="brand" href="#top" aria-label="ROXXY 3D PRINTS home"><span class="brand-mark">R<span>✦</span></span><span class="brand-name">ROXXY <b>3D PRINTS</b></span></a>
+    <nav class="desktop-nav"><a href="#products">Products</a><a href="#details">Details</a><a href="#contact">Contact</a></nav>
+    <button class="cart-trigger" id="openCart" type="button"><span>Cart</span><span class="cart-count" id="cartCount">0</span></button>
   </header>
-
-  <main>
+  <main id="top">
     <section class="hero">
       <div class="hero-grid"></div>
       <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span> FIRST ROXXY PRODUCT</div>
-        <h1>SMALL SIZE.<br><span>BOLD DESIGN.</span></h1>
-        <p>Meet the ROXXY Spider Emblem — a distinctive white 3D-printed spider design, made to stand out.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#product">SHOP THE SPIDER <span>↗</span></a>
-          <a class="btn btn-ghost" href="#details">VIEW DETAILS</a>
-        </div>
-        <div class="hero-meta"><span>3D PRINTED</span><i></i><span>WHITE FINISH</span><i></i><span>ROXXY ORIGINAL</span></div>
+        <div class="eyebrow"><span class="pulse"></span> ROXXY 3D PRINTS COLLECTION</div>
+        <h1>YOUR IDEAS.<br><span>PRINTED IN 3D.</span></h1>
+        <p>Discover distinctive 3D-printed designs from ROXXY. Explore our first drops and message us for orders or custom prints.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#products">EXPLORE PRODUCTS <span>↗</span></a><a class="btn btn-ghost" href="#contact">CUSTOM PRINTS</a></div>
+        <div class="hero-meta"><span>3D PRINTED</span><i></i><span>UNIQUE DESIGNS</span><i></i><span>ROXXY COLLECTION</span></div>
       </div>
-      <div class="hero-art">
-        <div class="hero-image-frame">
-          <img src="spider-emblem.jpg" alt="White ROXXY 3D printed spider emblem" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-          <div class="image-fallback"><span>🕷</span><small>ADD YOUR SPIDER PHOTO</small></div>
-          <span class="image-tag">RX-A03 / ROXXY</span>
-        </div>
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      <div class="hero-art"><div class="hero-image-frame"><img src="spider-emblem.jpg" alt="White ROXXY 3D printed spider emblem"><span class="image-tag">FIRST DROP / RX-A03</span></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div></div>
+    </section>
+    <section class="product-section" id="products">
+      <div class="section-kicker">THE ROXXY DROPS</div>
+      <div class="section-heading"><div><h2>FIND YOUR<br><span>ROXXY DESIGN.</span></h2></div><p>Two products. One growing collection.<br>Choose your design and order on WhatsApp.</p></div>
+      <div class="products-grid">
+        <article class="product-card">
+          <div class="product-photo"><img src="spider-emblem.jpg" alt="White 3D printed spider emblem"><span class="product-code">RX-A03</span></div>
+          <div class="product-info"><div class="product-category">ACCESSORIES / 3D PRINTS</div><h3>ROXXY Spider Emblem</h3><p>White 3D-printed spider emblem with a bold, curved-leg design.</p><div class="product-buy"><div><span class="price">₹49</span><small>Price per piece</small></div><button class="btn btn-primary add-btn" data-add="spider01" type="button">ADD TO CART <span>＋</span></button></div><div class="product-note">RX-A03 · Final availability and delivery charges are confirmed on WhatsApp.</div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-photo oni-photo"><img src="oni-mask.jpg" alt="White 3D printed Japanese-inspired Oni lower face mask"><span class="product-code">RX-M01</span></div>
+          <div class="product-info"><div class="product-category">MASKS / 3D PRINTS</div><h3>ROXXY Oni Face Mask</h3><p>Japanese-inspired Oni lower-face mask with a bold grin and prominent fangs. Face mask only — not a full-head helmet.</p><div class="product-buy"><div><span class="price">₹600</span><small>Price per piece</small></div><button class="btn btn-primary add-btn" data-add="oni01" type="button">ADD TO CART <span>＋</span></button></div><div class="product-note">RX-M01 · Final availability, fit and delivery charges are confirmed on WhatsApp.</div></div>
+        </article>
       </div>
     </section>
-
-    <section class="product-section" id="product">
-      <div class="section-kicker">THE FIRST DROP</div>
-      <div class="section-heading">
-        <div><h2>THE ROXXY<br><span>SPIDER EMBLEM.</span></h2></div>
-        <p>One product. One signature design.<br>Available now from ROXXY 3D PRINTS.</p>
-      </div>
-
-      <article class="product-card">
-        <div class="product-photo">
-          <img src="spider-emblem.jpg" alt="White 3D printed spider emblem" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-          <div class="photo-fallback"><span>🕷</span><b>ROXXY SPIDER</b></div>
-          <span class="product-code">RX-A03</span>
-        </div>
-        <div class="product-info">
-          <div class="product-category">ACCESSORIES / 3D PRINTS</div>
-          <h3>ROXXY Spider Emblem</h3>
-          <p>White 3D-printed spider emblem with a bold, curved-leg design.</p>
-          <div class="product-buy">
-            <div><span class="price">₹49</span><small>Price per piece</small></div>
-            <button class="btn btn-primary add-btn" id="addProduct" type="button">ADD TO CART <span>＋</span></button>
-          </div>
-          <div class="product-note">Final availability and delivery charges are confirmed on WhatsApp.</div>
-        </div>
-      </article>
-    </section>
-
-    <section class="details-section" id="details">
-      <div class="eyebrow">PRODUCT DETAILS</div>
-      <h2>MADE TO <span>STAND OUT.</span></h2>
-      <div class="detail-grid">
-        <article><b>01</b><h3>DESIGN</h3><p>Distinctive spider silhouette with curved legs, based on the product photo.</p></article>
-        <article><b>02</b><h3>MATERIAL</h3><p>3D-printed plastic. Ask us to confirm the available material and finish.</p></article>
-        <article><b>03</b><h3>ORDER</h3><p>Add the emblem to your cart and send your order enquiry directly through WhatsApp.</p></article>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div>
-        <div class="eyebrow">HAVE A QUESTION?</div>
-        <h2>LET'S TALK<br><span>ON WHATSAPP.</span></h2>
-        <p>Ask about stock, quantity, colour, delivery and custom 3D printing.</p>
-      </div>
-      <a class="btn btn-primary" id="directWhatsApp" href="#">CHAT WITH ROXXY ↗</a>
-    </section>
+    <section class="details-section" id="details"><div class="eyebrow">PRODUCT DETAILS</div><h2>MADE TO <span>STAND OUT.</span></h2><div class="detail-grid"><article><b>01</b><h3>DESIGN</h3><p>Distinctive 3D-printed designs, including the Spider Emblem and Oni Face Mask.</p></article><article><b>02</b><h3>MATERIAL & FINISH</h3><p>Ask ROXXY to confirm material, finish, sizing and availability before ordering.</p></article><article><b>03</b><h3>ORDER</h3><p>Add products to your cart and send your order enquiry directly through WhatsApp.</p></article></div></section>
+    <section class="contact-section" id="contact"><div><div class="eyebrow">HAVE A QUESTION?</div><h2>LET'S TALK<br><span>ON WHATSAPP.</span></h2><p>Ask about stock, quantity, colour, sizing, delivery and custom 3D printing.</p></div><a class="btn btn-primary" id="directWhatsApp" href="#">CHAT WITH ROXXY ↗</a></section>
   </main>
-
-  <footer class="footer">
-    <a class="brand" href="#"><span class="brand-mark">R<span>✦</span></span><span class="brand-name">ROXXY <b>3D PRINTS</b></span></a>
-    <p>YOUR IDEAS. PRINTED IN 3D.</p>
-    <small>© <span id="year"></span> ROXXY 3D PRINTS. All rights reserved.</small>
-  </footer>
-
+  <footer class="footer"><a class="brand" href="#top"><span class="brand-mark">R<span>✦</span></span><span class="brand-name">ROXXY <b>3D PRINTS</b></span></a><p>YOUR IDEAS. PRINTED IN 3D.</p><small>© <span id="year"></span> ROXXY 3D PRINTS. All rights reserved.</small></footer>
   <div class="overlay" id="overlay"></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
-    <div class="drawer-head">
-      <div><div class="eyebrow">YOUR SELECTION</div><h2>YOUR CART</h2></div>
-      <button class="close-cart" id="closeCart" type="button" aria-label="Close cart">×</button>
-    </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="drawer-bottom">
-      <div class="subtotal"><span>Estimated subtotal</span><b id="cartTotal">₹0</b></div>
-      <p>Shipping and final order details are confirmed on WhatsApp.</p>
-      <button class="btn btn-primary checkout-btn" id="checkout" type="button">CHECKOUT ON WHATSAPP ↗</button>
-    </div>
-  </aside>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true"><div class="drawer-head"><div><div class="eyebrow">YOUR SELECTION</div><h2>YOUR CART</h2></div><button class="close-cart" id="closeCart" type="button" aria-label="Close cart">×</button></div><div class="cart-items" id="cartItems"></div><div class="drawer-bottom"><div class="subtotal"><span>Estimated subtotal</span><b id="cartTotal">₹0</b></div><p>Shipping and final order details are confirmed on WhatsApp.</p><button class="btn btn-primary checkout-btn" id="checkout" type="button">CHECKOUT ON WHATSAPP ↗</button></div></aside>
   <div class="toast" id="toast" role="status"></div>
   <script src="script.js"></script>
 </body>

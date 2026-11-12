@@ -1,133 +1,33 @@
-// ROXXY 3D PRINTS — single-product storefront
-// WhatsApp number: country code + number, digits only.
+// ROXXY 3D PRINTS — two-product storefront
 const WHATSAPP_NUMBER = "919398882855";
-
-const product = {
-  id: "spider01",
-  name: "ROXXY Spider Emblem",
-  category: "Accessories",
-  price: 49,
-  desc: "White 3D-printed spider emblem with a bold, curved-leg design.",
-  code: "RX-A03"
+const products = {
+  spider01: { id:"spider01", name:"ROXXY Spider Emblem", price:49, code:"RX-A03" },
+  oni01: { id:"oni01", name:"ROXXY Oni Face Mask", price:600, code:"RX-M01" }
 };
-
 const money = amount => "₹" + Number(amount).toLocaleString("en-IN");
-const cartDrawer = document.getElementById("cartDrawer");
-const overlay = document.getElementById("overlay");
-const cartItems = document.getElementById("cartItems");
-
-let quantity = 0;
-
-// Keep only the spider in the cart and discard old catalogue products.
+const cartDrawer=document.getElementById("cartDrawer"), overlay=document.getElementById("overlay"), cartItems=document.getElementById("cartItems");
+let cart={};
 try {
-  const saved = JSON.parse(localStorage.getItem("roxxyCart") || "[]");
-  const spider = Array.isArray(saved)
-    ? saved.find(item => item.id === product.id)
-    : null;
-  quantity = spider && Number(spider.qty) > 0
-    ? Math.floor(Number(spider.qty))
-    : 0;
-} catch (error) {
-  quantity = 0;
+  const saved=JSON.parse(localStorage.getItem("roxxyCart")||"[]");
+  if(Array.isArray(saved)) saved.forEach(item=>{ if(products[item.id] && Number(item.qty)>0) cart[item.id]=Math.floor(Number(item.qty)); });
+} catch(e) { cart={}; }
+function saveCart(){ localStorage.setItem("roxxyCart",JSON.stringify(Object.entries(cart).map(([id,qty])=>({id,qty})))); renderCart(); }
+function addToCart(id){ if(!products[id]) return; cart[id]=(cart[id]||0)+1; saveCart(); showToast(products[id].name+" added to your cart"); }
+function renderCart(){
+  const count=Object.values(cart).reduce((a,b)=>a+b,0);
+  const total=Object.entries(cart).reduce((sum,[id,qty])=>sum+products[id].price*qty,0);
+  document.getElementById("cartCount").textContent=count; document.getElementById("cartTotal").textContent=money(total);
+  const entries=Object.entries(cart).filter(([id,qty])=>products[id]&&qty>0);
+  if(!entries.length){cartItems.innerHTML='<p class="empty-cart">Your cart is empty. Explore the ROXXY collection to get started.</p>';return;}
+  cartItems.innerHTML=entries.map(([id,qty])=>{const p=products[id];return `<div class="cart-row"><div><h4>${p.name}</h4><small>${money(p.price)} each · ${p.code}</small><div class="qty-controls"><button type="button" data-minus="${id}" aria-label="Decrease quantity">−</button><b>${qty}</b><button type="button" data-plus="${id}" aria-label="Increase quantity">+</button><button class="remove" type="button" data-remove="${id}">REMOVE</button></div></div><b>${money(p.price*qty)}</b></div>`;}).join("");
 }
-
-function saveCart() {
-  const cart = quantity > 0 ? [{ id: product.id, qty: quantity }] : [];
-  localStorage.setItem("roxxyCart", JSON.stringify(cart));
-  renderCart();
-}
-
-function addToCart() {
-  quantity += 1;
-  saveCart();
-  showToast("Spider emblem added to your cart");
-}
-
-function renderCart() {
-  document.getElementById("cartCount").textContent = quantity;
-  document.getElementById("cartTotal").textContent = money(product.price * quantity);
-
-  if (quantity === 0) {
-    cartItems.innerHTML = '<p class="empty-cart">Your cart is empty. Add the ROXXY Spider Emblem to get started.</p>';
-    return;
-  }
-
-  cartItems.innerHTML = `
-    <div class="cart-row">
-      <div>
-        <h4>${product.name}</h4>
-        <small>${money(product.price)} each</small>
-        <div class="qty-controls">
-          <button type="button" id="minusQty" aria-label="Decrease quantity">−</button>
-          <b>${quantity}</b>
-          <button type="button" id="plusQty" aria-label="Increase quantity">+</button>
-          <button class="remove" type="button" id="removeItem">REMOVE</button>
-        </div>
-      </div>
-      <b>${money(product.price * quantity)}</b>
-    </div>`;
-}
-
-function openCart() {
-  cartDrawer.classList.add("open");
-  overlay.classList.add("show");
-  cartDrawer.setAttribute("aria-hidden", "false");
-}
-
-function closeCart() {
-  cartDrawer.classList.remove("open");
-  overlay.classList.remove("show");
-  cartDrawer.setAttribute("aria-hidden", "true");
-}
-
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-  window.setTimeout(() => toast.classList.remove("show"), 1800);
-}
-
-function sendWhatsApp(message) {
-  if (!/^91\d{10}$/.test(WHATSAPP_NUMBER)) {
-    showToast("Please check the WhatsApp number in script.js");
-    return;
-  }
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank", "noopener,noreferrer");
-}
-
-document.getElementById("addProduct").addEventListener("click", addToCart);
-document.getElementById("openCart").addEventListener("click", openCart);
-document.getElementById("closeCart").addEventListener("click", closeCart);
-overlay.addEventListener("click", closeCart);
-
-cartItems.addEventListener("click", event => {
-  if (event.target.id === "plusQty") quantity += 1;
-  if (event.target.id === "minusQty") quantity = Math.max(0, quantity - 1);
-  if (event.target.id === "removeItem") quantity = 0;
-  saveCart();
-});
-
-document.getElementById("checkout").addEventListener("click", () => {
-  if (quantity < 1) {
-    showToast("Your cart is empty");
-    return;
-  }
-
-  const subtotal = product.price * quantity;
-  const message =
-    `Hello ROXXY 3D PRINTS! I'd like to enquire about this order:\n\n` +
-    `• ${product.name} x ${quantity} — ${money(subtotal)}\n\n` +
-    `Estimated subtotal: ${money(subtotal)}\n\n` +
-    `Please confirm availability, delivery charges and final order details.`;
-
-  sendWhatsApp(message);
-});
-
-document.getElementById("directWhatsApp").addEventListener("click", event => {
-  event.preventDefault();
-  sendWhatsApp("Hello ROXXY 3D PRINTS! I'd like to enquire about the ROXXY Spider Emblem priced at ₹49.");
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();
-renderCart();
+function openCart(){cartDrawer.classList.add("open");overlay.classList.add("show");cartDrawer.setAttribute("aria-hidden","false");}
+function closeCart(){cartDrawer.classList.remove("open");overlay.classList.remove("show");cartDrawer.setAttribute("aria-hidden","true");}
+function showToast(message){const toast=document.getElementById("toast");toast.textContent=message;toast.classList.add("show");window.setTimeout(()=>toast.classList.remove("show"),1800);}
+function sendWhatsApp(message){if(!/^91\d{10}$/.test(WHATSAPP_NUMBER)){showToast("Please check the WhatsApp number in script.js");return;}window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,"_blank","noopener,noreferrer");}
+document.querySelectorAll("[data-add]").forEach(button=>button.addEventListener("click",()=>addToCart(button.dataset.add)));
+document.getElementById("openCart").addEventListener("click",openCart);document.getElementById("closeCart").addEventListener("click",closeCart);overlay.addEventListener("click",closeCart);
+cartItems.addEventListener("click",event=>{const el=event.target;const id=el.dataset.plus||el.dataset.minus||el.dataset.remove;if(!id)return;if(el.dataset.plus)cart[id]=(cart[id]||0)+1;if(el.dataset.minus)cart[id]=Math.max(0,(cart[id]||0)-1);if(el.dataset.remove)cart[id]=0;if(!cart[id])delete cart[id];saveCart();});
+document.getElementById("checkout").addEventListener("click",()=>{const entries=Object.entries(cart).filter(([id,qty])=>products[id]&&qty>0);if(!entries.length){showToast("Your cart is empty");return;}const lines=entries.map(([id,qty])=>`• ${products[id].name} x ${qty} — ${money(products[id].price*qty)}`).join("\n");const total=entries.reduce((sum,[id,qty])=>sum+products[id].price*qty,0);sendWhatsApp(`Hello ROXXY 3D PRINTS! I'd like to enquire about this order:\n\n${lines}\n\nEstimated subtotal: ${money(total)}\n\nPlease confirm availability, sizing if applicable, delivery charges and final order details.`);});
+document.getElementById("directWhatsApp").addEventListener("click",event=>{event.preventDefault();sendWhatsApp("Hello ROXXY 3D PRINTS! I'd like to enquire about your products and custom 3D printing.");});
+document.getElementById("year").textContent=new Date().getFullYear();renderCart();
